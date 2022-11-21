@@ -90,57 +90,106 @@ int main(int argc, char* argv[])
 
 	float vertices[] =
 	{
-		-0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f, -0.5f,
-		 0.5f,  0.5f, -0.5f,
-		 0.5f,  0.5f, -0.5f,
-		-0.5f,  0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		 0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
 
-		-0.5f, -0.5f,  0.5f,
-		 0.5f, -0.5f,  0.5f,
-		 0.5f,  0.5f,  0.5f,
-		 0.5f,  0.5f,  0.5f,
-		-0.5f,  0.5f,  0.5f,
-		-0.5f, -0.5f,  0.5f,
+		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		 0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f,  0.0f, 1.0f,
 
-		-0.5f,  0.5f,  0.5f,
-		-0.5f,  0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, -0.5f, -0.5f,
-		-0.5f, -0.5f,  0.5f,
-		-0.5f,  0.5f,  0.5f,
+		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f,  0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f, -0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f, -0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
+		-0.5f,  0.5f,  0.5f, -1.0f,  0.0f,  0.0f,
 
-		 0.5f,  0.5f,  0.5f,
-		 0.5f,  0.5f, -0.5f,
-		 0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f,  0.5f,
-		 0.5f,  0.5f,  0.5f,
+		 0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f,  0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f, -0.5f, -0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f, -0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
+		 0.5f,  0.5f,  0.5f,  1.0f,  0.0f,  0.0f,
 
-		-0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f, -0.5f,
-		 0.5f, -0.5f,  0.5f,
-		 0.5f, -0.5f,  0.5f,
-		-0.5f, -0.5f,  0.5f,
-		-0.5f, -0.5f, -0.5f,
+		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+		 0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
+		 0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		 0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		-0.5f, -0.5f,  0.5f,  0.0f, -1.0f,  0.0f,
+		-0.5f, -0.5f, -0.5f,  0.0f, -1.0f,  0.0f,
 
-		-0.5f,  0.5f, -0.5f,
-		 0.5f,  0.5f, -0.5f,
-		 0.5f,  0.5f,  0.5f,
-		 0.5f,  0.5f,  0.5f,
-		-0.5f,  0.5f,  0.5f,
-		-0.5f,  0.5f, -0.5f
+		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+		 0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+		 0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+		-0.5f,  0.5f,  0.5f,  0.0f,  1.0f,  0.0f,
+		-0.5f,  0.5f, -0.5f,  0.0f,  1.0f,  0.0f
 
 	};
+
+	GLfloat normals[] = {
+
+			0.0f,  0.0f, -1.0f,
+			0.0f,  0.0f, -1.0f,
+			0.0f,  0.0f, -1.0f,
+			0.0f,  0.0f, -1.0f,
+			0.0f,  0.0f, -1.0f,
+			0.0f,  0.0f, -1.0f,
+
+			0.0f,  0.0f, 1.0f,
+			0.0f,  0.0f, 1.0f,
+			0.0f,  0.0f, 1.0f,
+			0.0f,  0.0f, 1.0f,
+			0.0f,  0.0f, 1.0f,
+			0.0f,  0.0f, 1.0f,
+
+			-1.0f,  0.0f,  0.0f,
+			-1.0f,  0.0f,  0.0f,
+			-1.0f,  0.0f,  0.0f,
+			-1.0f,  0.0f,  0.0f,
+			-1.0f,  0.0f,  0.0f,
+			-1.0f,  0.0f,  0.0f,
+
+			1.0f,  0.0f,  0.0f,
+			1.0f,  0.0f,  0.0f,
+			1.0f,  0.0f,  0.0f,
+			1.0f,  0.0f,  0.0f,
+			1.0f,  0.0f,  0.0f,
+			1.0f,  0.0f,  0.0f,
+
+			0.0f, -1.0f,  0.0f,
+			0.0f, -1.0f,  0.0f,
+			0.0f, -1.0f,  0.0f,
+			0.0f, -1.0f,  0.0f,
+			0.0f, -1.0f,  0.0f,
+			0.0f, -1.0f,  0.0f,
+
+			0.0f,  1.0f,  0.0f,
+			0.0f,  1.0f,  0.0f,
+			0.0f,  1.0f,  0.0f,
+			0.0f,  1.0f,  0.0f,
+			0.0f,  1.0f,  0.0f,
+			0.0f,  1.0f,  0.0f
+	};
+
 
 
 	GameObject cubeObject(vertices);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	glBindVertexArray(cubeObject.VAO);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float) ));
+	//glEnableVertexAttribArray(1);
 
 	GameObject lightObject(vertices);						// Represent light source object
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
@@ -148,6 +197,9 @@ int main(int argc, char* argv[])
 
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
+
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
 
 	
 	// Game loop
@@ -176,6 +228,7 @@ int main(int argc, char* argv[])
 		cubeShader.UseProgram();
 		cubeShader.SetVec3("objectColor", 1.0f, 0.5f, 0.31f);
 		cubeShader.SetVec3("lightColor", 1.0f, 1.0f, 1.0f);
+		cubeShader.SetVec3("lightPos", lightPos.x, lightPos.y, lightPos.z);
 
 		projection	=	glm::perspective(glm::radians(camera.Zoom_), (float)(WIDTH / HEIGHT), 0.1f, 200.0f);
 		view		=	camera.GetViewMatrix();
@@ -199,7 +252,6 @@ int main(int argc, char* argv[])
 		lightShader.SetMat4("projection", projection);
 		lightShader.SetMat4("view", view);
 
-
 		model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
 		model = glm::translate(model, lightPos);
 		model = glm::scale(model, glm::vec3(0.5f));
@@ -208,6 +260,12 @@ int main(int argc, char* argv[])
 
 		// Draw light source
 		glDrawArrays(GL_TRIANGLES, 0, 36);
+
+		
+		glBegin(GL_TRIANGLES);
+			
+
+		glEnd();
 
 		// Catch events
 		glfwSwapBuffers(win);
