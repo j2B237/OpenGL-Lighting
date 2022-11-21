@@ -10,6 +10,8 @@
 
 */
 
+
+// TODO : ADD ANIMATION AND DEAR IMGUI
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
@@ -88,7 +90,7 @@ int main(int argc, char* argv[])
 
 	// Creation de buffers
 
-	float vertices[] =
+	GLfloat vertices[] =
 	{
 		-0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
 		 0.5f, -0.5f, -0.5f,  0.0f,  0.0f, -1.0f,
@@ -180,25 +182,23 @@ int main(int argc, char* argv[])
 	};
 
 
-
 	GameObject cubeObject(vertices);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	glBindVertexArray(cubeObject.VAO);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
 	glEnableVertexAttribArray(0);
-
-	//glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float) ));
-	//glEnableVertexAttribArray(1);
-
+	
 	GameObject lightObject(vertices);						// Represent light source object
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	glBindVertexArray(lightObject.VAO);
 
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)0);
 	glEnableVertexAttribArray(0);
 
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	// Normals attributes pointer 
+	// Use it here bc instanciation of lightObject create a new Vertex buffer object so the first call to store vertex array data is redefine
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(GLfloat), (void*)(3 * sizeof(GLfloat)));
 	glEnableVertexAttribArray(1);
 
 	
@@ -221,12 +221,12 @@ int main(int argc, char* argv[])
 		glm::mat4 view			= glm::mat4(1.0f);
 		glm::mat4 projection	= glm::mat4(1.0f);
 
-		glm::vec3 lightPos = glm::vec3(1.2f, 1.0f, 2.0f);
+		glm::vec3 lightPos		= glm::vec3(1.2f, 1.0f, 2.0f);
 
 
 		// Active uniform for cube object
 		cubeShader.UseProgram();
-		cubeShader.SetVec3("objectColor", 1.0f, 0.5f, 0.31f);
+		cubeShader.SetVec3("objectColor", 0.3f, 0.5f, 0.31f);
 		cubeShader.SetVec3("lightColor", 1.0f, 1.0f, 1.0f);
 		cubeShader.SetVec3("lightPos", lightPos.x, lightPos.y, lightPos.z);
 
@@ -246,26 +246,22 @@ int main(int argc, char* argv[])
 		// Active uniform for light source object
 		lightShader.UseProgram();
 
-		projection	= glm::perspective(glm::radians(camera.Zoom_), (float)(WIDTH / HEIGHT), 0.1f, 200.0f);
-		view		= camera.GetViewMatrix();
+		projection	=	glm::perspective(glm::radians(camera.Zoom_), (float)(WIDTH / HEIGHT), 0.1f, 200.0f);
+		view		=	camera.GetViewMatrix();
 
 		lightShader.SetMat4("projection", projection);
 		lightShader.SetMat4("view", view);
 
-		model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
-		model = glm::translate(model, lightPos);
-		model = glm::scale(model, glm::vec3(0.5f));
+		model		=	glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.5f, 0.5f));
+		model		=	glm::translate(model, lightPos);
+		model		=	glm::scale(model, glm::vec3(0.5f));
+
 		lightShader.SetMat4("model", model);
 		
 
 		// Draw light source
 		glDrawArrays(GL_TRIANGLES, 0, 36);
 
-		
-		glBegin(GL_TRIANGLES);
-			
-
-		glEnd();
 
 		// Catch events
 		glfwSwapBuffers(win);
